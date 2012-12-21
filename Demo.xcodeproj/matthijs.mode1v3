@@ -275,7 +275,7 @@
 							<key>PBXSmartGroupTreeModuleOutlineStateSelectionKey</key>
 							<array>
 								<array>
-									<integer>3</integer>
+									<integer>9</integer>
 									<integer>1</integer>
 									<integer>0</integer>
 								</array>
@@ -300,7 +300,7 @@
 							<real>262</real>
 						</array>
 						<key>RubberWindowFrame</key>
-						<string>47 252 1017 776 0 0 1680 1028 </string>
+						<string>250 216 1017 776 0 0 1680 1028 </string>
 					</dict>
 					<key>Module</key>
 					<string>PBXSmartGroupTreeModule</string>
@@ -311,18 +311,37 @@
 					<key>Dock</key>
 					<array>
 						<dict>
+							<key>BecomeActive</key>
+							<true/>
 							<key>ContentConfiguration</key>
 							<dict>
 								<key>PBXProjectModuleGUID</key>
 								<string>1CE0B20306471E060097A5F4</string>
 								<key>PBXProjectModuleLabel</key>
-								<string>&lt;No Editor&gt;</string>
+								<string>DemoViewController.m</string>
 								<key>PBXSplitModuleInNavigatorKey</key>
 								<dict>
 									<key>Split0</key>
 									<dict>
 										<key>PBXProjectModuleGUID</key>
 										<string>1CE0B20406471E060097A5F4</string>
+										<key>PBXProjectModuleLabel</key>
+										<string>DemoViewController.m</string>
+										<key>_historyCapacity</key>
+										<integer>0</integer>
+										<key>bookmark</key>
+										<string>7B65199F12A3FC650024CBCF</string>
+										<key>history</key>
+										<array>
+											<string>7B171ECF128ECE0000E89D01</string>
+											<string>7B171ED0128ECE0000E89D01</string>
+											<string>7B171ED1128ECE0000E89D01</string>
+											<string>7BE5BAD612A0047F004C5029</string>
+											<string>7BE5BAD712A0047F004C5029</string>
+											<string>7BE5BAD812A0047F004C5029</string>
+											<string>7BE5BAD912A0047F004C5029</string>
+											<string>7BE5BADB12A0047F004C5029</string>
+										</array>
 									</dict>
 									<key>SplitCount</key>
 									<string>1</string>
@@ -333,14 +352,14 @@
 							<key>GeometryConfiguration</key>
 							<dict>
 								<key>Frame</key>
-								<string>{{0, 0}, {733, 0}}</string>
+								<string>{{0, 0}, {733, 730}}</string>
 								<key>RubberWindowFrame</key>
-								<string>47 252 1017 776 0 0 1680 1028 </string>
+								<string>250 216 1017 776 0 0 1680 1028 </string>
 							</dict>
 							<key>Module</key>
 							<string>PBXNavigatorGroup</string>
 							<key>Proportion</key>
-							<string>0pt</string>
+							<string>730pt</string>
 						</dict>
 						<dict>
 							<key>ContentConfiguration</key>
@@ -353,14 +372,14 @@
 							<key>GeometryConfiguration</key>
 							<dict>
 								<key>Frame</key>
-								<string>{{0, 5}, {733, 730}}</string>
+								<string>{{0, 735}, {733, 0}}</string>
 								<key>RubberWindowFrame</key>
-								<string>47 252 1017 776 0 0 1680 1028 </string>
+								<string>250 216 1017 776 0 0 1680 1028 </string>
 							</dict>
 							<key>Module</key>
 							<string>XCDetailModule</string>
 							<key>Proportion</key>
-							<string>730pt</string>
+							<string>0pt</string>
 						</dict>
 					</array>
 					<key>Proportion</key>
@@ -379,9 +398,9 @@
 			</array>
 			<key>TableOfContents</key>
 			<array>
-				<string>7B3C85461216882000B43B8A</string>
+				<string>7B6519A012A3FC650024CBCF</string>
 				<string>1CE0B1FE06471DED0097A5F4</string>
-				<string>7B3C85471216882000B43B8A</string>
+				<string>7B6519A112A3FC650024CBCF</string>
 				<string>1CE0B20306471E060097A5F4</string>
 				<string>1CE0B20506471E060097A5F4</string>
 			</array>
@@ -519,15 +538,11 @@
 	<integer>5</integer>
 	<key>WindowOrderList</key>
 	<array>
-		<string>7B3C85561216886500B43B8A</string>
-		<string>7B3C85571216886500B43B8A</string>
-		<string>1C78EAAD065D492600B07095</string>
-		<string>1CD10A99069EF8BA00B06720</string>
 		<string>7BB5831E120F3D5100271D23</string>
-		<string>/Users/matthijs/Documents/Develop/AudioBufferPlayer/Demo.xcodeproj</string>
+		<string>/Users/matthijs/Documents/Business/Open Source/AudioBufferPlayer/Demo.xcodeproj</string>
 	</array>
 	<key>WindowString</key>
-	<string>47 252 1017 776 0 0 1680 1028 </string>
+	<string>250 216 1017 776 0 0 1680 1028 </string>
 	<key>WindowToolsV3</key>
 	<array>
 		<dict>
@@ -604,7 +619,7 @@
 			<key>TableOfContents</key>
 			<array>
 				<string>7BB5831E120F3D5100271D23</string>
-				<string>7B3C85481216882000B43B8A</string>
+				<string>7B6519A212A3FC650024CBCF</string>
 				<string>1CD0528F0623707200166675</string>
 				<string>XCMainBuildResultsModuleGUID</string>
 			</array>
