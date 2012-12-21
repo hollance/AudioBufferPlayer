@@ -31,9 +31,9 @@ static void InterruptionListenerCallback(void *inUserData, UInt32 interruptionSt
 static void PlayCallback(void *inUserData, AudioQueueRef inAudioQueue, AudioQueueBufferRef inBuffer)
 {
 	MHAudioBufferPlayer *player = (__bridge MHAudioBufferPlayer *)inUserData;
-	if (player.playing)
+	if (player.playing && player.block != nil)
 	{
-		[player.delegate mh_audioBufferPlayer:player fillBuffer:inBuffer format:player.audioFormat];
+		player.block(inBuffer, player.audioFormat);
 		AudioQueueEnqueueBuffer(inAudioQueue, inBuffer, 0, NULL);
 	}
 }
@@ -63,7 +63,6 @@ static void PlayCallback(void *inUserData, AudioQueueRef inAudioQueue, AudioQueu
 	if ((self = [super init]))
 	{
 		_playing = NO;
-		_delegate = nil;
 		_playQueue = NULL;
 		_gain = 1.0;
 

@@ -4,21 +4,14 @@
 @class MHAudioBufferPlayer;
 
 /*
- * The delegate for MHAudioBufferPlayer.
- *
- * The delegate should be set before the MHAudioBufferPlayer is started.
- */
-@protocol MHAudioBufferPlayerDelegate
-
-/*
- * This method is invoked when the MHAudioBufferPlayer needs a buffer to be
+ * This block is invoked when the MHAudioBufferPlayer needs a buffer to be
  * filled up with audio data.
  *
- * The delegate must fill buffer->mAudioData with up to mAudioDataBytesCapacity
+ * The block must fill buffer->mAudioData with up to mAudioDataBytesCapacity
  * bytes of audio data.
  * 
- * The delegate must set buffer->mAudioDataByteSize to the number of bytes
- * of valid audio data that it wrote in the buffer.
+ * The block must set buffer->mAudioDataByteSize to the number of bytes of
+ * valid audio data that it wrote in the buffer.
  *
  * Writing 0 bytes is not recommended. If you have nothing to output, then it
  * is better to do:
@@ -29,15 +22,13 @@
  * This method is called from an internal Audio Queue thread, so you may need 
  * to synchronize access to any shared objects it uses.
  */
-- (void)mh_audioBufferPlayer:(MHAudioBufferPlayer *)audioBufferPlayer fillBuffer:(AudioQueueBufferRef)buffer format:(AudioStreamBasicDescription)audioFormat;
-
-@end
+typedef void (^MHAudioBufferPlayerBlock)(AudioQueueBufferRef buffer, AudioStreamBasicDescription audioFormat);
 
 /*
  * MHAudioBufferPlayer makes it easy for you to do sound synthesis.
  *
  * It sets up an Audio Session and an Audio Queue for playback of live audio. 
- * You only have to provide a delegate that is responsible for filling up the 
+ * You only have to provide a block that is responsible for filling up the
  * audio buffers. 
  *
  * A bit of terminology:
@@ -55,12 +46,12 @@
  */
 @interface MHAudioBufferPlayer : NSObject
 
-/* The delegate that fills up the audio buffers. */
-@property (nonatomic, weak) id <MHAudioBufferPlayerDelegate> delegate;
+/* The block that fills up the audio buffers. */
+@property (nonatomic, copy) MHAudioBufferPlayerBlock block;
 
 /*
  * Whether the MHAudioBufferPlayer is currently active. If not active, it will
- * not ask the delegate to fill up buffers.
+ * not ask the block to fill up buffers.
  */
 @property (nonatomic, assign, readonly) BOOL playing;
 
@@ -105,7 +96,7 @@
  * After you create an MHAudioBufferPlayer instance, it is paused. You need to
  * start it manually with this function.
  *
- * Be sure to set the delegate before you start the MHAudioBufferPlayer.
+ * Be sure to set the block before you start the MHAudioBufferPlayer.
  */
 - (void)start;
 
