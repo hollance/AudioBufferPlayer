@@ -38,7 +38,7 @@ class MHAudioBufferPlayer {
   var audioFormat: AudioStreamBasicDescription
   
   var _playQueue: AudioQueueRef?
-  var _playQueueBuffers: [AudioQueueBufferRef?] = [] // TODO: - original is `AudioQueueBufferRef _playQueueBuffers[NumberOfAudioDataBuffers]`
+  var _playQueueBuffers: [AudioQueueBufferRef?] = .init(repeating: nil, count: NumberOfAudioDataBuffers)
   var _packetsPerBuffer: UInt32
   var _bytesPerBuffer: UInt32
   
