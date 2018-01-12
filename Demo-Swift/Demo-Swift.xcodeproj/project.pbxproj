@@ -13,6 +13,7 @@
 		6087DD3B20086F4800E8852E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6087DD3A20086F4800E8852E /* Assets.xcassets */; };
 		6087DD3E20086F4800E8852E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6087DD3C20086F4800E8852E /* LaunchScreen.storyboard */; };
 		6087DD482008700A00E8852E /* MHAudioBufferPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6087DD472008700A00E8852E /* MHAudioBufferPlayer.swift */; };
+		6087DD4A2008865F00E8852E /* Synth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6087DD492008865F00E8852E /* Synth.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		6087DD3D20086F4800E8852E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		6087DD3F20086F4800E8852E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6087DD472008700A00E8852E /* MHAudioBufferPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MHAudioBufferPlayer.swift; sourceTree = "<group>"; };
+		6087DD492008865F00E8852E /* Synth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Synth.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +60,7 @@
 			children = (
 				6087DD4520086FAB00E8852E /* MHAudioBufferPlayer */,
 				6087DD3520086F4800E8852E /* ViewController.swift */,
+				6087DD492008865F00E8852E /* Synth.swift */,
 				6087DD3320086F4800E8852E /* AppDelegate.swift */,
 				6087DD3720086F4800E8852E /* Main.storyboard */,
 				6087DD3A20086F4800E8852E /* Assets.xcassets */,
@@ -147,6 +150,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6087DD4A2008865F00E8852E /* Synth.swift in Sources */,
 				6087DD3620086F4800E8852E /* ViewController.swift in Sources */,
 				6087DD3420086F4800E8852E /* AppDelegate.swift in Sources */,
 				6087DD482008700A00E8852E /* MHAudioBufferPlayer.swift in Sources */,
