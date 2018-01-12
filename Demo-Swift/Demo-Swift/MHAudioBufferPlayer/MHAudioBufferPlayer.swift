@@ -90,29 +90,31 @@ class MHAudioBufferPlayer {
   func setUpAudioSession() {
     
     // TODO: - Verify that `AudioQueueInitialize` is not necessary.
-    
+    let session = AVAudioSession.sharedInstance()
     do {
-      try AVAudioSession.sharedInstance().setActive(true)
+      try session.setActive(true)
     } catch {
       print("Audio session setup failed: \(error)")
     }
   }
   
   func tearDownAudioSession() {
+    let session = AVAudioSession.sharedInstance()
     do {
-      try AVAudioSession.sharedInstance().setActive(false)
+      try session.setActive(false)
     } catch {
       print("Audio session teardown failed: \(error)")
     }
   }
   
   func setUpPlayQueue() {
+    let commonModes: CFString = CFRunLoopMode.commonModes as! CFString
     AudioQueueNewOutput(
       &audioFormat,
       PlayCallback,
       UnsafeMutableRawPointer(Unmanaged.passUnretained(self).toOpaque()),
       nil,
-      (CFRunLoopMode.commonModes as! CFString),
+      commonModes,
       0,
       &_playQueue)
     

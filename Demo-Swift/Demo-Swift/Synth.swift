@@ -60,8 +60,8 @@ class Synth {
   }
   
   deinit {
-    // free(_sine);
-    // free(_envelope);
+//     free(_sine);
+//     free(_envelope);
   }
   
   func equalTemperament() {
@@ -72,7 +72,7 @@ class Synth {
   
   func buildSineTable() {
     _sineLength = Int(_sampleRate)
-    _sine = UnsafeMutableBufferPointer<Float>(start: nil, count: _sineLength * MemoryLayout<Float>.size)
+    _sine = UnsafeMutableBufferPointer<Float>(start: UnsafeMutablePointer<Float>.allocate(capacity: 1), count: _sineLength * MemoryLayout<Float>.size)
     
     for i in stride(from: 0, to: _sineLength, by: 1) {
       _sine![i] = sinf(Float(i * 2) * Float.pi / Float(_sineLength))
@@ -81,7 +81,7 @@ class Synth {
   
   func buildEnvelope() {
     _envLength = Int(_sampleRate * 2)
-    _envelope = UnsafeMutableBufferPointer<Float>(start: nil, count: _envLength * MemoryLayout<Float>.size) // TODO: -
+    _envelope = UnsafeMutableBufferPointer<Float>(start: UnsafeMutablePointer<Float>.allocate(capacity: 1), count: _envLength * MemoryLayout<Float>.size) 
     
     let attackLength = Int(AttackTime * _sampleRate)
     for i in stride(from: 0, to: attackLength, by: 1) {
@@ -94,7 +94,7 @@ class Synth {
     }
   }
   
-  func playNote(midiNote: Int) {
+  func playNote(_ midiNote: Int) {
     for n in stride(from: 0, to: MaxToneEvents, by: 1) {
       if _tones[n].state == .inactive {
         _tones[n].state = .pressed
