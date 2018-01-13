@@ -56,7 +56,7 @@ class Synth {
     
     equalTemperament()
     buildSineTable()
-    buildEnvelope()
+//    buildEnvelope()
   }
   
   deinit {
@@ -81,7 +81,7 @@ class Synth {
   
   func buildEnvelope() {
     _envLength = Int(_sampleRate * 2)
-    _envelope = UnsafeMutableBufferPointer<Float>(start: UnsafeMutablePointer<Float>.allocate(capacity: 1), count: _envLength * MemoryLayout<Float>.size) 
+    _envelope = UnsafeMutableBufferPointer<Float>(start: UnsafeMutablePointer<Float>.allocate(capacity: 1), count: _envLength * MemoryLayout<Float>.size)
     
     let attackLength = Int(AttackTime * _sampleRate)
     for i in stride(from: 0, to: attackLength, by: 1) {

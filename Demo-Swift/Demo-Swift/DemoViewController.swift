@@ -19,12 +19,13 @@ final class DemoViewController: UIViewController {
     return vc
   }
   
-  var _player: MHAudioBufferPlayer!
-  var _synth: Synth!
+  var _player: AudioBufferPlayer!
+  var _synth: Synthesizer!
   var _synthLock: NSLock!
   
 
   @IBAction func keyDown(_ sender: UIButton) {
+    print("key downed: \(sender.tag)")
     _synthLock.lock()
     let midiNote = sender.tag
     _synth.playNote(midiNote)
@@ -37,17 +38,17 @@ extension DemoViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
-//    setUpAudioBufferPlayer()
+    setUpAudioBufferPlayer()
   }
   
   func setUpAudioBufferPlayer() {
     _synthLock = NSLock()
     let sampleRate: Float = 16000.0
-    _synth = Synth(sampleRate: sampleRate)
-    _player = MHAudioBufferPlayer(sampleRate: Double(sampleRate), channels: 1, bitsPerChannel: 16, packetsPerBuffer: 1024)
+    _synth = Synthesizer(sampleRate: sampleRate)
+    _player = AudioBufferPlayer(sampleRate: Double(sampleRate), channels: 1, bitsPerChannel: 16, packetsPerBuffer: 1024)
     _player.gain = 0.9
     
-    _player.block = { [weak self] buffer, audioFormat in
+    _player.bufferBlock = { [weak self] buffer, audioFormat in
       guard let strongSelf = self else { return }
       strongSelf._synthLock.lock()
       

@@ -59,6 +59,7 @@ class MHAudioBufferPlayer {
     audioFormat.mBitsPerChannel = bitsPerChannel
     audioFormat.mFramesPerPacket = 1 // uncompressed audio
     audioFormat.mBytesPerFrame = audioFormat.mChannelsPerFrame * audioFormat.mBitsPerChannel / 8
+    audioFormat.mBytesPerPacket = audioFormat.mBytesPerFrame * audioFormat.mFramesPerPacket
     audioFormat.mFormatFlags = kLinearPCMFormatFlagIsSignedInteger | kLinearPCMFormatFlagIsPacked
     
     _packetsPerBuffer = packetsPerBuffer
@@ -108,7 +109,7 @@ class MHAudioBufferPlayer {
   }
   
   func setUpPlayQueue() {
-    let commonModes: CFString = CFRunLoopMode.commonModes as! CFString
+    let commonModes: CFString = CFRunLoopMode.commonModes.rawValue
     AudioQueueNewOutput(
       &audioFormat,
       PlayCallback,
